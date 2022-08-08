@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -77,6 +77,17 @@ enum class EAutoReceiveInput : uint8_t
 };
 
 
+// Enum Engine.EActorSpawnRestrictions
+enum class EActorSpawnRestrictions : uint8_t
+{
+	EActorSpawnRestrictions__ServerOnly = 0,
+	EActorSpawnRestrictions__ClientOnly = 1,
+	EActorSpawnRestrictions__ServerAndClient = 2,
+	EActorSpawnRestrictions__SpawnRestrictionMax = 3,
+	EActorSpawnRestrictions__EActorSpawnRestrictions_MAX = 4
+};
+
+
 // Enum Engine.ENetRole
 enum class ENetRole : uint8_t
 {
@@ -104,17 +115,6 @@ enum class EVectorQuantization : uint8_t
 	EVectorQuantization__RoundOneDecimal = 1,
 	EVectorQuantization__RoundTwoDecimals = 2,
 	EVectorQuantization__EVectorQuantization_MAX = 3
-};
-
-
-// Enum Engine.EActorSpawnRestrictions
-enum class EActorSpawnRestrictions : uint8_t
-{
-	EActorSpawnRestrictions__ServerOnly = 0,
-	EActorSpawnRestrictions__ClientOnly = 1,
-	EActorSpawnRestrictions__ServerAndClient = 2,
-	EActorSpawnRestrictions__SpawnRestrictionMax = 3,
-	EActorSpawnRestrictions__EActorSpawnRestrictions_MAX = 4
 };
 
 
@@ -1189,6 +1189,16 @@ enum class EDetailMode : uint8_t
 };
 
 
+// Enum Engine.ENetSpatialClusteringOptions
+enum class ENetSpatialClusteringOptions : uint8_t
+{
+	ENetSpatialClusteringOptions__OptIn = 0,
+	ENetSpatialClusteringOptions__OptOut = 1,
+	ENetSpatialClusteringOptions__NeverRelevant = 2,
+	ENetSpatialClusteringOptions__ENetSpatialClusteringOptions_MAX = 3
+};
+
+
 // Enum Engine.EBrushType
 enum class EBrushType : uint8_t
 {
@@ -1649,7 +1659,8 @@ enum class EParticleEventType : uint8_t
 	EPET_Collision                 = 3,
 	EPET_Burst                     = 4,
 	EPET_Blueprint                 = 5,
-	EPET_MAX                       = 6
+	EPET_KillByKillPlane           = 6,
+	EPET_MAX                       = 7
 };
 
 
@@ -2131,7 +2142,8 @@ enum class ETexturePowerOfTwoSetting : uint8_t
 	ETexturePowerOfTwoSetting__None = 0,
 	ETexturePowerOfTwoSetting__PadToPowerOfTwo = 1,
 	ETexturePowerOfTwoSetting__PadToSquarePowerOfTwo = 2,
-	ETexturePowerOfTwoSetting__ETexturePowerOfTwoSetting_MAX = 3
+	ETexturePowerOfTwoSetting__PadToMultipleOfFour = 3,
+	ETexturePowerOfTwoSetting__ETexturePowerOfTwoSetting_MAX = 4
 };
 
 
@@ -2199,7 +2211,8 @@ enum class ETextureGroup : uint8_t
 	TEXTUREGROUP_Animation         = 31,
 	TEXTUREGROUP_Coherent          = 32,
 	TEXTUREGROUP_MippedUI          = 33,
-	TEXTUREGROUP_MAX               = 34
+	TEXTUREGROUP_LoadingScreen     = 34,
+	TEXTUREGROUP_MAX               = 35
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,10 +11,11 @@
 #include "SoT_CoreUObject_classes.hpp"
 #include "SoT_Engine_classes.hpp"
 #include "SoT_Maths_classes.hpp"
-#include "AthenaCommons.hpp"
 #include "SoT_ResourceContentionFramework_classes.hpp"
-#include "SoT_StatusEffects_classes.hpp"
+#include "AthenaCommons.hpp"
+#include "SoT_StoryFramework_classes.hpp"
 #include "SoT_Kraken_classes.hpp"
+#include "SoT_StatusEffects_classes.hpp"
 
 namespace SDK
 {
@@ -107,6 +108,14 @@ struct FPlayerFeedback
 	struct FEarthquakeForceFeedback                    ForceFeedback;                                            // 0x0000(0x0040) (Edit, DisableEditOnInstance)
 	TArray<class UClass*>                              CameraShakes;                                             // 0x0040(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
 	struct FWeightedProbabilityRangeOfRanges           StaggerStrength;                                          // 0x0050(0x0030) (Edit, DisableEditOnInstance)
+};
+
+// ScriptStruct NaturalDisasters.EarthquakeStoryCustomisationData
+// 0x0010
+struct FEarthquakeStoryCustomisationData
+{
+	struct FStoryFlag                                  StoryFlag;                                                // 0x0000(0x0008) (Edit)
+	class UEarthquakeSetupDataAsset*                   EarthquakeSetupData;                                      // 0x0008(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct NaturalDisasters.GeyserSpawnAngleOption

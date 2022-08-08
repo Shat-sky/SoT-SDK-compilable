@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -10,11 +10,11 @@
 #include "SoT_Pets_enums.hpp"
 #include "SoT_Athena_classes.hpp"
 #include "SoT_AthenaAI_classes.hpp"
-#include "SoT_Interaction_classes.hpp"
 #include "SoT_AIModule_classes.hpp"
 #include "SoT_Engine_classes.hpp"
 #include "AthenaCommons.hpp"
 #include "SoT_CoreUObject_classes.hpp"
+#include "SoT_Interaction_classes.hpp"
 #include "SoT_RareAudio_classes.hpp"
 #include "SoT_ActionStateMachine_classes.hpp"
 
@@ -28,7 +28,7 @@ namespace SDK
 // 0x0008
 struct FHangoutSpotId
 {
-	struct FName                                       Name;                                                     // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	struct FName                                       Name;                                                     // 0x0000(0x0008) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
 };
 
 // ScriptStruct Pets.PetHangoutSpotParams

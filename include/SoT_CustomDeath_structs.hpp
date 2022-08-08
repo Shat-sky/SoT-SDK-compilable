@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -103,6 +103,15 @@ struct FCustomPlayerStartConfigData
 	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
 	struct FQuat                                       Rotation;                                                 // 0x0010(0x0010) (IsPlainOldData)
 	TArray<class FString>                              Tags;                                                     // 0x0020(0x0010) (ZeroConstructor)
+};
+
+// ScriptStruct CustomDeath.CustomPlayerStartConfigResponseData
+// 0x0008
+struct FCustomPlayerStartConfigResponseData
+{
+	bool                                               Success;                                                  // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
+	int                                                PlayerStartId;                                            // 0x0004(0x0004) (ZeroConstructor, IsPlainOldData)
 };
 
 }

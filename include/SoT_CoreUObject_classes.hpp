@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -77,7 +77,7 @@ public:
 
 	inline void ProcessEvent(class UFunction* function, void* parms)
 	{
-		return GetVFunction<void(*)(UObject*, class UFunction*, void*)>(this, 59)(this, function, parms);
+		return GetVFunction<void(*)(UObject*, class UFunction*, void*)>(this, 55)(this, function, parms);
 	}
 
 
@@ -221,7 +221,7 @@ public:
 
 	inline UObject* CreateDefaultObject()
 	{
-		return GetVFunction<UObject*(*)(UClass*)>(this, 91)(this);
+		return GetVFunction<UObject*(*)(UClass*)>(this, 86)(this);
 	}
 
 };

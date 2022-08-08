@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -43,7 +43,8 @@ enum class EInteractionObject : uint8_t
 	EInteractionObject__Shop       = 1,
 	EInteractionObject__Chest      = 2,
 	EInteractionObject__Barrel     = 3,
-	EInteractionObject__EInteractionObject_MAX = 4
+	EInteractionObject__CaptainsBookcase = 4,
+	EInteractionObject__EInteractionObject_MAX = 5
 };
 
 

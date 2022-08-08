@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -8,10 +8,10 @@
 
 #include "SoT_Basic.hpp"
 #include "SoT_Engine_enums.hpp"
-#include "SoT_CoreUObject_classes.hpp"
-#include "SoT_InputCore_classes.hpp"
 #include "SoT_Slate_classes.hpp"
+#include "SoT_CoreUObject_classes.hpp"
 #include "SoT_SlateCore_classes.hpp"
+#include "SoT_InputCore_classes.hpp"
 
 namespace SDK
 {
@@ -3316,7 +3316,7 @@ struct FDominanceGroupName
 };
 
 // ScriptStruct Engine.TextureLODGroup
-// 0x0038
+// 0x003C
 struct FTextureLODGroup
 {
 	TEnumAsByte<ETextureGroup>                         Group;                                                    // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
@@ -3331,6 +3331,7 @@ struct FTextureLODGroup
 	struct FName                                       MinMagFilter;                                             // 0x0024(0x0008) (ZeroConstructor, IsPlainOldData)
 	struct FName                                       MipFilter;                                                // 0x002C(0x0008) (ZeroConstructor, IsPlainOldData)
 	int                                                TextureQualityReduction;                                  // 0x0034(0x0004) (ZeroConstructor, IsPlainOldData)
+	int                                                bDisableMaxTextureResolutionOverride;                     // 0x0038(0x0004) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct Engine.DialogueContextMapping
@@ -4042,8 +4043,10 @@ struct FGPUSpriteEmitterInfo
 	struct FVector4                                    MurkyColorScale;                                          // 0x0270(0x0010) (ZeroConstructor, IsPlainOldData)
 	struct FName                                       LocationEmitterName;                                      // 0x0280(0x0008) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      bUseInheritedVelocityLocationEmitter : 1;                 // 0x0288(0x0001)
-	unsigned char                                      bKillParticlesOnFFTWater : 1;                             // 0x0288(0x0001)
-	unsigned char                                      UnknownData04[0x17];                                      // 0x0289(0x0017) MISSED OFFSET
+	unsigned char                                      UnknownData04[0x3];                                       // 0x0289(0x0003) MISSED OFFSET
+	struct FVector2D                                   InheritedVelocityScaleLocationEmitter;                    // 0x028C(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bKillParticlesOnFFTWater : 1;                             // 0x0294(0x0001)
+	unsigned char                                      UnknownData05[0xB];                                       // 0x0295(0x000B) MISSED OFFSET
 };
 
 // ScriptStruct Engine.GPUSpriteResourceData
@@ -4521,19 +4524,19 @@ struct FPacketDiscardStats
 	int                                                BytesDiscarded;                                           // 0x001C(0x0004) (ZeroConstructor, IsPlainOldData)
 };
 
+// ScriptStruct Engine.FeatureFlag
+// 0x0008
+struct FFeatureFlag
+{
+	struct FName                                       FeatureName;                                              // 0x0000(0x0008) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
 // ScriptStruct Engine.RuntimeVectorCurve
 // 0x0170
 struct FRuntimeVectorCurve
 {
 	struct FRichCurve                                  FloatCurves[0x3];                                         // 0x0000(0x0078)
 	class UCurveVector*                                ExternalCurve;                                            // 0x0168(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-};
-
-// ScriptStruct Engine.FeatureFlag
-// 0x0008
-struct FFeatureFlag
-{
-	struct FName                                       FeatureName;                                              // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct Engine.NetSubObjectPtr
@@ -4669,6 +4672,13 @@ struct FTickPrerequisite
 	unsigned char                                      UnknownData00[0x10];                                      // 0x0000(0x0010) MISSED OFFSET
 };
 
+// ScriptStruct Engine.Float_NetQuantized
+// 0x0004
+struct FFloat_NetQuantized
+{
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0000(0x0004) MISSED OFFSET
+};
+
 // ScriptStruct Engine.DepthFieldGlowInfo
 // 0x0024
 struct FDepthFieldGlowInfo
@@ -4744,7 +4754,7 @@ struct FCollisionMergingSettings
 };
 
 // ScriptStruct Engine.MeshMergingSettings
-// 0x0038
+// 0x0050
 struct FMeshMergingSettings
 {
 	bool                                               bGenerateLightMapUV;                                      // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
@@ -4768,6 +4778,9 @@ struct FMeshMergingSettings
 	TArray<float>                                      LODScreenSizes;                                           // 0x0020(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 	int                                                LODForCollision;                                          // 0x0030(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
+	TArray<float>                                      LODReductionPercentTriangles;                             // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	int                                                MaxNumberOfLODs;                                          // 0x0048(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x4];                                       // 0x004C(0x0004) MISSED OFFSET
 };
 
 // ScriptStruct Engine.MaterialSimplificationSettings
@@ -5181,7 +5194,7 @@ struct FMergedCollisionActorsSimplification
 };
 
 // ScriptStruct Engine.HierarchicalSimplification
-// 0x00C0
+// 0x00D8
 struct FHierarchicalSimplification
 {
 	bool                                               bSimplifyMesh;                                            // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
@@ -5192,7 +5205,7 @@ struct FHierarchicalSimplification
 	int                                                MinNumberOfActorsToBuild;                                 // 0x0010(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	struct FMeshProxySettings                          ProxySetting;                                             // 0x0014(0x0070) (Edit)
 	unsigned char                                      UnknownData01[0x4];                                       // 0x0084(0x0004) MISSED OFFSET
-	struct FMeshMergingSettings                        MergeSetting;                                             // 0x0088(0x0038) (Edit)
+	struct FMeshMergingSettings                        MergeSetting;                                             // 0x0088(0x0050) (Edit)
 };
 
 // ScriptStruct Engine.NavGraphEdge
@@ -5860,7 +5873,7 @@ struct FEdGraphSchemaAction_NewNode : public FEdGraphSchemaAction
 };
 
 // ScriptStruct Engine.ScreenMessageString
-// 0x0028
+// 0x0030
 struct FScreenMessageString
 {
 	uint64_t                                           Key;                                                      // 0x0000(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
@@ -5868,7 +5881,7 @@ struct FScreenMessageString
 	struct FColor                                      DisplayColor;                                             // 0x0018(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
 	float                                              TimeToDisplay;                                            // 0x001C(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
 	float                                              CurrentTimeDisplayed;                                     // 0x0020(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0024(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0xC];                                       // 0x0024(0x000C) MISSED OFFSET
 };
 
 // ScriptStruct Engine.FullyLoadedPackagesInfo
@@ -6311,6 +6324,43 @@ struct FAnimNode_HIKRelativePlant : public FAnimNode_HIKBase
 	float                                              DeltaTime;                                                // 0x0088(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	float                                              Smoothing;                                                // 0x008C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0090(0x0008) MISSED OFFSET
+};
+
+// ScriptStruct Engine.AnimNode_HIKRelativePlantAndFloorContact
+// 0x0088 (0x00D0 - 0x0048)
+struct FAnimNode_HIKRelativePlantAndFloorContact : public FAnimNode_HIKBase
+{
+	bool                                               FeetContact;                                              // 0x0048(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               HandsContact;                                             // 0x0049(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               FingersContact;                                           // 0x004A(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               ToesContact;                                              // 0x004B(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EHIKFeetContactType>                   FeetContactType;                                          // 0x004C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EHIKHandsContactType>                  HandsContactType;                                         // 0x004D(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x004E(0x0002) MISSED OFFSET
+	float                                              Alpha;                                                    // 0x0050(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              Depth;                                                    // 0x0054(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              HipsRotationFactor;                                       // 0x0058(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              ChestRotationFactor;                                      // 0x005C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              DistanceUp;                                               // 0x0060(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              DistanceDown;                                             // 0x0064(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	int                                                NbRays;                                                   // 0x0068(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              FootRadius;                                               // 0x006C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaTime;                                                // 0x0070(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              Smoothing;                                                // 0x0074(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	struct FCollisionResponseContainer                 OverrideRaycastCollisionResponse;                         // 0x0078(0x0020) (Edit, BlueprintVisible)
+	float                                              FeetHeight;                                               // 0x0098(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              FeetBack;                                                 // 0x009C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              FeetMiddle;                                               // 0x00A0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              FeetFront;                                                // 0x00A4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              FeetInSide;                                               // 0x00A8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              FeetOutSide;                                              // 0x00AC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              HandsHeight;                                              // 0x00B0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              HandsBack;                                                // 0x00B4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              HandsMiddle;                                              // 0x00B8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              HandsFront;                                               // 0x00BC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              HandsInSide;                                              // 0x00C0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              HandsOutSide;                                             // 0x00C4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x00C8(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct Engine.AnimNode_HIKResist

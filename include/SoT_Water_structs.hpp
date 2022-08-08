@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -10,6 +10,7 @@
 #include "SoT_Water_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 #include "SoT_Engine_classes.hpp"
+#include "SoT_Athena_classes.hpp"
 #include "SoT_AthenaEngine_classes.hpp"
 #include "SoT_Maths_classes.hpp"
 
@@ -58,15 +59,15 @@ struct FSplashProbe
 	float                                              ProbeSamplingTime;                                        // 0x00E0(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	float                                              TimeBetweenProbeVfx;                                      // 0x00E4(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	class UObject*                                     ParticleSystem;                                           // 0x00E8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               SpawnAttached;                                            // 0x00F0(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               AttachToWaterSurface;                                     // 0x00F1(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EAttachLocation>                       SplashAttachType;                                         // 0x00F2(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x1];                                       // 0x00F3(0x0001) MISSED OFFSET
+	TEnumAsByte<EVfxUnderwaterUsage>                   UnderwaterUsage;                                          // 0x00F0(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               SpawnAttached;                                            // 0x00F1(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               AttachToWaterSurface;                                     // 0x00F2(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EAttachLocation>                       SplashAttachType;                                         // 0x00F3(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	struct FVector                                     VfxSpawnOffset;                                           // 0x00F4(0x000C) (Edit, ZeroConstructor, IsPlainOldData)
 	bool                                               Enabled;                                                  // 0x0100(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x7];                                       // 0x0101(0x0007) MISSED OFFSET
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0101(0x0007) MISSED OFFSET
 	class UParticleSystemComponent*                    CurrentlyPlayingVFX;                                      // 0x0108(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x18];                                      // 0x0110(0x0018) MISSED OFFSET
+	unsigned char                                      UnknownData02[0x18];                                      // 0x0110(0x0018) MISSED OFFSET
 };
 
 // ScriptStruct Water.BuoyancyVolumeSample

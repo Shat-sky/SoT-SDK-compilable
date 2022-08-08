@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -10,10 +10,10 @@
 #include "SoT_AIShips_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 #include "SoT_Engine_classes.hpp"
-#include "SoT_Maths_classes.hpp"
 #include "SoT_AIModule_classes.hpp"
 #include "SoT_Athena_classes.hpp"
 #include "SoT_AthenaAI_classes.hpp"
+#include "SoT_Maths_classes.hpp"
 #include "SoT_AthenaEngine_classes.hpp"
 
 namespace SDK
@@ -432,20 +432,20 @@ struct FAIShipEncounterZoneEnteredNetworkEvent : public FNetworkEventStruct
 	unsigned char                                      UnknownData00[0x4];                                       // 0x001C(0x0004) MISSED OFFSET
 };
 
-// ScriptStruct AIShips.FeatureLockedCampaignParams
+// ScriptStruct AIShips.FeatureLockedAIShipBattles
 // 0x0010
-struct FFeatureLockedCampaignParams
+struct FFeatureLockedAIShipBattles
 {
-	struct FName                                       Feature;                                                  // 0x0000(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UCursedSailsCampaignDataAsset*               CampaignDataAsset;                                        // 0x0008(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FFeatureFlag                                Feature;                                                  // 0x0000(0x0008) (Edit, DisableEditOnInstance)
+	class UAIShipBattlesDataAsset*                     BattlesData;                                              // 0x0008(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 };
 
 // ScriptStruct AIShips.AIShipWorldSettings
 // 0x0018
 struct FAIShipWorldSettings
 {
-	TArray<struct FFeatureLockedCampaignParams>        CampaignParams;                                           // 0x0000(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
-	class UAIShipBattlesDataAsset*                     BattlesData;                                              // 0x0010(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	TArray<struct FFeatureLockedAIShipBattles>         FeatureToggledBattlesData;                                // 0x0000(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
+	class UAIShipBattlesDataAsset*                     DefaultBattlesData;                                       // 0x0010(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 };
 
 // ScriptStruct AIShips.AIShipDamagedTelemetryEvent

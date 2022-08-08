@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -41,6 +41,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindObject<UClass>(_xor_("Class SeasonProgressionFramework.SeasonProgressionExclusionComponent"));
+		return ptr;
+	}
+
+};
+
+
+// Class SeasonProgressionFramework.SeasonSettings
+// 0x0000 (0x0038 - 0x0038)
+class USeasonSettings : public UDeveloperSettings
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class SeasonProgressionFramework.SeasonSettings"));
 		return ptr;
 	}
 

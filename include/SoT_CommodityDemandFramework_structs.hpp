@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -8,10 +8,10 @@
 
 #include "SoT_Basic.hpp"
 #include "SoT_CommodityDemandFramework_enums.hpp"
+#include "AthenaCommons.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 #include "SoT_Engine_classes.hpp"
 #include "SoT_Time_classes.hpp"
-#include "AthenaCommons.hpp"
 #include "SoT_DeliverableFramework_classes.hpp"
 #include "SoT_AthenaEngine_classes.hpp"
 

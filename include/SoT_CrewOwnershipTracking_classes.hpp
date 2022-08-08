@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -77,6 +77,8 @@ public:
 		return ptr;
 	}
 
+
+	struct FGuid GetSpawningCrewIdByCopy();
 };
 
 

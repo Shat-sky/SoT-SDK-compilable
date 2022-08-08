@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,6 +29,15 @@ enum class ETaleQuestStepState : uint8_t
 	ETaleQuestStepState__PendingCompletion = 2,
 	ETaleQuestStepState__Completed = 3,
 	ETaleQuestStepState__ETaleQuestStepState_MAX = 4
+};
+
+
+// Enum Tales.ETaleInteractionState
+enum class ETaleInteractionState : uint8_t
+{
+	ETaleInteractionState__Enabled = 0,
+	ETaleInteractionState__Disabled = 1,
+	ETaleInteractionState__ETaleInteractionState_MAX = 2
 };
 
 

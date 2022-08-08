@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -10,9 +10,9 @@
 #include "SoT_Reviving_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 #include "SoT_Engine_classes.hpp"
+#include "SoT_StatusEffects_classes.hpp"
 #include "SoT_AthenaEngine_classes.hpp"
 #include "SoT_Interaction_classes.hpp"
-#include "SoT_StatusEffects_classes.hpp"
 #include "SoT_ActionStateMachine_classes.hpp"
 #include "SoT_RareAudio_classes.hpp"
 #include "AthenaCommons.hpp"
@@ -24,7 +24,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // ScriptStruct Reviving.ModeSpecificReviveSettings
-// 0x0030
+// 0x0038
 struct FModeSpecificReviveSettings
 {
 	TEnumAsByte<EPlayMode>                             AssociatedPlaymode;                                       // 0x0000(0x0001) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
@@ -38,7 +38,9 @@ struct FModeSpecificReviveSettings
 	float                                              DeathCameraStartDelay;                                    // 0x001C(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
 	float                                              ReviveWindowDuration;                                     // 0x0020(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
 	float                                              GhostFadeDuration;                                        // 0x0024(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
-	class UReviveSettings*                             CachedReviveSettings;                                     // 0x0028(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	float                                              AutoGiveUpDuration;                                       // 0x0028(0x0004) (Edit, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
+	class UReviveSettings*                             CachedReviveSettings;                                     // 0x0030(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
 };
 
 // ScriptStruct Reviving.ReviveEffectsValues

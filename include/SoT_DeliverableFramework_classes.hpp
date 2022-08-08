@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -190,11 +190,12 @@ public:
 
 
 // Class DeliverableFramework.DeliverableRequirementsDataAsset
-// 0x0010 (0x0038 - 0x0028)
+// 0x0028 (0x0050 - 0x0028)
 class UDeliverableRequirementsDataAsset : public UDataAsset
 {
 public:
 	TArray<class UDeliverableRequirementBase*>         Requirements;                                             // 0x0028(0x0010) (Edit, ExportObject, ZeroConstructor)
+	struct FDeliverableRequirementFeatureOverride      FeatureOverrideRequirements;                              // 0x0038(0x0018) (Edit)
 
 	static UClass* StaticClass()
 	{

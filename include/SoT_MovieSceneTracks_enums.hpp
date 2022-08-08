@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -51,6 +51,16 @@ enum class EParticleKey : uint8_t
 	EParticleKey__Deactivate       = 1,
 	EParticleKey__Trigger          = 2,
 	EParticleKey__EParticleKey_MAX = 3
+};
+
+
+// Enum MovieSceneTracks.EAnimationTrackSubtype
+enum class EAnimationTrackSubtype : uint8_t
+{
+	EAnimationTrackSubtype__None   = 0,
+	EAnimationTrackSubtype__CameraDockable_1stPerson = 1,
+	EAnimationTrackSubtype__CameraDockable_3rdPerson = 2,
+	EAnimationTrackSubtype__EAnimationTrackSubtype_MAX = 3
 };
 
 

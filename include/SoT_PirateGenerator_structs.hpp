@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -210,6 +210,24 @@ struct FWardrobeOutfitResult
 	TArray<class USkeletalMesh*>                       Meshes;                                                   // 0x0000(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 	TArray<struct FIPGScalarParameter>                 ScalarParameters;                                         // 0x0010(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 	TArray<struct FName>                               MaterialReferences;                                       // 0x0020(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+};
+
+// ScriptStruct PirateGenerator.ClothingCreatorSlotItem
+// 0x0050
+struct FClothingCreatorSlotItem
+{
+	class FString                                      Name;                                                     // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	class FString                                      DisplayName;                                              // 0x0010(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	class FString                                      Description;                                              // 0x0020(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	class FString                                      Category;                                                 // 0x0030(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	TArray<class FString>                              Slots;                                                    // 0x0040(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+};
+
+// ScriptStruct PirateGenerator.ClothingCreatorSlotItemConfig
+// 0x0010
+struct FClothingCreatorSlotItemConfig
+{
+	TArray<struct FClothingCreatorSlotItem>            Items;                                                    // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 };
 
 // ScriptStruct PirateGenerator.IPGTestSimpleType

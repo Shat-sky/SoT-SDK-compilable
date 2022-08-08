@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2) SDK
+// Sea of Thieves (2.6.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -9,6 +9,7 @@
 #include "SoT_Basic.hpp"
 #include "SoT_AthenaInputMkII_enums.hpp"
 #include "SoT_Engine_classes.hpp"
+#include "SoT_AthenaInput_classes.hpp"
 
 namespace SDK
 {
