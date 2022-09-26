@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2.6.0) SDK
+// Sea of Thieves (2.6.1) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,13 +12,13 @@
 #include "AthenaCommons.hpp"
 #include "SoT_Engine_classes.hpp"
 #include "SoT_CoreUObject_classes.hpp"
-#include "SoT_Pets_classes.hpp"
 #include "SoT_Athena_classes.hpp"
-#include "SoT_StoryFramework_classes.hpp"
-#include "SoT_AIModule_classes.hpp"
-#include "SoT_Maths_classes.hpp"
 #include "SoT_StatusEffects_classes.hpp"
 #include "SoT_Tales_classes.hpp"
+#include "SoT_StoryFramework_classes.hpp"
+#include "SoT_Pets_classes.hpp"
+#include "SoT_AIModule_classes.hpp"
+#include "SoT_Maths_classes.hpp"
 #include "SoT_AthenaEngine_classes.hpp"
 #include "SoT_ActionStateMachine_classes.hpp"
 
@@ -427,14 +427,6 @@ struct FPetPartSizeMapping
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
 	float                                              PetScale;                                                 // 0x0004(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 };
-
-// ScriptStruct AthenaAI.AIPartId
-// 0x0008
-struct FAIPartId
-{
-	struct FName                                       PartId;                                                   // 0x0000(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-};
-
 // ScriptStruct AthenaAI.PetMaterialEntry
 // 0x0018
 struct FPetMaterialEntry
@@ -1406,6 +1398,13 @@ struct FEventSporeBreathAIAbilityFinished
 struct FEventSporeBreathAIAbilityStarted
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
+};
+
+// ScriptStruct AthenaAI.EventAIAbilityStarted
+// 0x0008
+struct FEventAIAbilityStarted
+{
+	class UClass*                                      AbilityTypeCategory;                                      // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct AthenaAI.EventAIVulnerabilityAbilityEnded

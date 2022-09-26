@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2.6.0) SDK
+// Sea of Thieves (2.6.1) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -98,28 +98,28 @@ class TArray
 	friend class FString;
 
 public:
-	inline TArray()
+	TArray()
 	{
 		Data = nullptr;
 		Count = Max = 0;
 	};
 
-	inline int Num() const
+	size_t Num() const
 	{
 		return Count;
 	};
 
-	inline T& operator[](int i)
+	T& operator[](size_t i)
 	{
 		return Data[i];
 	};
 
-	inline const T& operator[](int i) const
+	const T& operator[](size_t i) const
 	{
 		return Data[i];
 	};
 
-	inline bool IsValidIndex(int i) const
+	bool IsValidIndex(size_t i) const
 	{
 		return i < Num();
 	}
@@ -398,12 +398,15 @@ struct FText
 
 struct FScriptDelegate
 {
-	char UnknownData[20];
+	char UnknownData[0x10];
 };
-
 struct FScriptMulticastDelegate
 {
-	char UnknownData[16];
+	char UnknownData[0x10];
+};
+struct FScriptMulticastSparseDelegate
+{
+	unsigned char UnknownData[0x1];
 };
 
 template<typename Key, typename Value>

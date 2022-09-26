@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2.6.0) SDK
+// Sea of Thieves (2.6.1) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -597,7 +597,7 @@ public:
 
 
 // Class Watercrafts.TaleQuestWatercraftFunctionLibrary
-// 0x0000 (0x0170 - 0x0170)
+// 0x0000 (0x0178 - 0x0178)
 class UTaleQuestWatercraftFunctionLibrary : public UTaleQuestFunctionStepLibrary
 {
 public:

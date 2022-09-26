@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2.6.0) SDK
+// Sea of Thieves (2.6.1) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -8,15 +8,15 @@
 
 #include "SoT_Basic.hpp"
 #include "SoT_Tales_enums.hpp"
+#include "SoT_MerchantContracts_classes.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 #include "SoT_Engine_classes.hpp"
-#include "SoT_PrioritisedPrompts_enums.hpp"
 #include "SoT_Athena_structs.hpp"
 #include "AthenaCommons.hpp"
 #include "SoT_AthenaEngine_classes.hpp"
 #include "SoT_AIModule_classes.hpp"
+#include "SoT_PrioritisedPrompts_enums.hpp"
 #include "SoT_Maths_classes.hpp"
-#include "SoT_MerchantContracts_classes.hpp"
 #include "SoT_TaleMaps_classes.hpp"
 
 namespace SDK
@@ -220,6 +220,14 @@ struct FTaleActorSpawnParameters
 	bool                                               DeferredSpawning;                                         // 0x0002(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
+// ScriptStruct Tales.CompondNodePinDesc
+// 0x0048
+struct FCompondNodePinDesc
+{
+	struct FText                                       DisplayName;                                              // 0x0000(0x0038)
+	struct FGuid                                       PinId;                                                    // 0x0038(0x0010) (ZeroConstructor, IsPlainOldData)
+};
+
 // ScriptStruct Tales.TaleQuestDesc
 // 0x0058 (0x0080 - 0x0028)
 struct FTaleQuestDesc : public FQuestDesc
@@ -400,6 +408,13 @@ struct FTaleQuestContextInvalidTelemetryEvent
 {
 	struct FName                                       StepType;                                                 // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
 	struct FName                                       Tale;                                                     // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct Tales.QuestVariableAISpawner
+// 0x0000 (0x0020 - 0x0020)
+struct FQuestVariableAISpawner : public FQuestVariable
+{
+
 };
 
 // ScriptStruct Tales.StepBountyTargetDesc

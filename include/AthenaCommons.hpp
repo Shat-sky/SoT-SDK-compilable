@@ -277,15 +277,16 @@ struct FQuestDesc
 };
 
 // ScriptStruct Athena.DamageInstance
-// 0x0028
+// 0x0030
 struct FDamageInstance
 {
 	struct FGuid                                       AttackId;                                                 // 0x0000(0x0010) (ZeroConstructor, IsPlainOldData)
 	class AActor*                                      DirectInstigator;                                         // 0x0010(0x0008) (ZeroConstructor, IsPlainOldData)
 	class AActor*                                      RootInstigator;                                           // 0x0018(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	float                                              Amount;                                                   // 0x0020(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EHealthChangedReason>                  Reason;                                                   // 0x0024(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0025(0x0003) MISSED OFFSET
+	class AController*                                 RootInstigatorController;                                 // 0x0020(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	float                                              Amount;                                                   // 0x0028(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EHealthChangedReason>                  Reason;                                                   // 0x002C(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x002D(0x0003) MISSED OFFSET
 };
 
 // ScriptStruct Athena.LookAtOffsetParams
@@ -535,13 +536,6 @@ struct FQuestVariableAssetArray : public FQuestVariable
 
 };
 
-// ScriptStruct Athena.QuestVariableAISpawner
-// 0x0000 (0x0020 - 0x0020)
-struct FQuestVariableAISpawner : public FQuestVariable
-{
-
-};
-
 // ScriptStruct Athena.QuestVariableAIDioramaDesc
 // 0x0000 (0x0020 - 0x0020)
 struct FQuestVariableAIDioramaDesc : public FQuestVariable
@@ -627,6 +621,13 @@ struct FTinySharkParams
 	struct FWeightedProbabilityRangeOfRanges           LifetimeTimeout;                                          // 0x0080(0x0030) (Edit)
 	float                                              TrackedShipDistanceThreshold;                             // 0x00B0(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	float                                              RepositionTime;                                           // 0x00B4(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct AthenaAI.AIPartId
+// 0x0008
+struct FAIPartId
+{
+	struct FName                                       PartId;                                                   // 0x0000(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 };
 
 // Class AthenaAI.TinySharkExperience
@@ -1276,15 +1277,15 @@ public:
 };
 
 // Class Tales.TaleQuestFunctionStepLibrary
-// 0x0088 (0x0170 - 0x00E8)
+// 0x0090 (0x0178 - 0x00E8)
 class UTaleQuestFunctionStepLibrary : public UTaleQuestRunnableStepDesc
 {
 public:
 	class UFunction*                                   Function;                                                 // 0x00E8(0x0008) (ZeroConstructor, IsPlainOldData)
 	TMap<struct FName, struct FQuestVariable>          ParameterMappings;                                        // 0x00F0(0x0050) (Edit, ZeroConstructor, EditConst)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0140(0x0028) MISSED OFFSET
-	unsigned char                                      FunctionStepFlags;                                        // 0x0168(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0169(0x0007) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x30];                                      // 0x0140(0x0030) MISSED OFFSET
+	unsigned char                                      FunctionStepFlags;                                        // 0x0170(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0171(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{

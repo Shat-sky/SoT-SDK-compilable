@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2.6.0) SDK
+// Sea of Thieves (2.6.1) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,111 +14,11 @@ namespace SDK
 //Classes
 //---------------------------------------------------------------------------
 
-// Class Pets.AIPetsOnDemandSpawner
-// 0x0000 (0x0438 - 0x0438)
-class UAIPetsOnDemandSpawner : public UAISpawner
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.AIPetsOnDemandSpawner"));
-		return ptr;
-	}
-
-};
 
 
-// Class Pets.BTDecorator_IsForcingHangout
-// 0x0000 (0x0068 - 0x0068)
-class UBTDecorator_IsForcingHangout : public UBTDecorator_BaseConditional
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.BTDecorator_IsForcingHangout"));
-		return ptr;
-	}
-
-};
 
 
-// Class Pets.BTDecorator_IsOccupiedHangoutSpotStillAvailable
-// 0x0000 (0x0068 - 0x0068)
-class UBTDecorator_IsOccupiedHangoutSpotStillAvailable : public UBTDecorator_BaseConditional
-{
-public:
 
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.BTDecorator_IsOccupiedHangoutSpotStillAvailable"));
-		return ptr;
-	}
-
-};
-
-
-// Class Pets.BTDecorator_IsOccupyingHangoutSpotWithGivenId
-// 0x0010 (0x0078 - 0x0068)
-class UBTDecorator_IsOccupyingHangoutSpotWithGivenId : public UBTDecorator_BaseConditional
-{
-public:
-	TArray<struct FHangoutSpotId>                      SuccessIds;                                               // 0x0068(0x0010) (Edit, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.BTDecorator_IsOccupyingHangoutSpotWithGivenId"));
-		return ptr;
-	}
-
-};
-
-
-// Class Pets.BTDecorator_IsPerchedInHangout
-// 0x0000 (0x0068 - 0x0068)
-class UBTDecorator_IsPerchedInHangout : public UBTDecorator_BaseConditional
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.BTDecorator_IsPerchedInHangout"));
-		return ptr;
-	}
-
-};
-
-
-// Class Pets.BTDecorator_PetFoodSourceAvailable
-// 0x0000 (0x0068 - 0x0068)
-class UBTDecorator_PetFoodSourceAvailable : public UBTDecorator_BaseConditional
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.BTDecorator_PetFoodSourceAvailable"));
-		return ptr;
-	}
-
-};
-
-
-// Class Pets.BTDecorator_PetRoamingAnimationStateActive
-// 0x0010 (0x0078 - 0x0068)
-class UBTDecorator_PetRoamingAnimationStateActive : public UBTDecorator_BaseConditional
-{
-public:
-	TArray<TEnumAsByte<EAthenaAnimationPetRoamingState>> MatchingStates;                                           // 0x0068(0x0010) (Edit, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.BTDecorator_PetRoamingAnimationStateActive"));
-		return ptr;
-	}
-
-};
 
 
 // Class Pets.BTTask_AttachToHangout
@@ -481,20 +381,6 @@ public:
 };
 
 
-// Class Pets.EnvQueryContext_AverageThreatPositionFromBlackboard
-// 0x0000 (0x0030 - 0x0030)
-class UEnvQueryContext_AverageThreatPositionFromBlackboard : public UEnvQueryContext_PositionFromBlackboard
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.EnvQueryContext_AverageThreatPositionFromBlackboard"));
-		return ptr;
-	}
-
-};
-
 
 // Class Pets.EnvQueryContext_CurrentHangoutSpot
 // 0x0000 (0x0028 - 0x0028)
@@ -511,20 +397,6 @@ public:
 };
 
 
-// Class Pets.EnvQueryContext_FirstThreatPositionFromBlackboard
-// 0x0000 (0x0030 - 0x0030)
-class UEnvQueryContext_FirstThreatPositionFromBlackboard : public UEnvQueryContext_PositionFromBlackboard
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.EnvQueryContext_FirstThreatPositionFromBlackboard"));
-		return ptr;
-	}
-
-};
-
 
 // Class Pets.EnvQueryContext_PerceivedFoodSources
 // 0x0000 (0x0028 - 0x0028)
@@ -540,20 +412,6 @@ public:
 
 };
 
-
-// Class Pets.EnvQueryContext_SafePositionFromBlackboard
-// 0x0000 (0x0030 - 0x0030)
-class UEnvQueryContext_SafePositionFromBlackboard : public UEnvQueryContext_PositionFromBlackboard
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.EnvQueryContext_SafePositionFromBlackboard"));
-		return ptr;
-	}
-
-};
 
 
 // Class Pets.PetDesc
@@ -636,42 +494,6 @@ public:
 		return ptr;
 	}
 
-};
-
-
-// Class Pets.PetAIController
-// 0x00E8 (0x09D8 - 0x08F0)
-class APetAIController : public AAthenaAIController
-{
-public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x08F0(0x0020) MISSED OFFSET
-	TArray<struct FAIStategyControllerMovementMod>     StrategyControllerMovementMods;                           // 0x0910(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
-	float                                              DefaultControlRotationInterpSpeed;                        // 0x0920(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x0924(0x0004) MISSED OFFSET
-	class UClass*                                      DefaultStrategy;                                          // 0x0928(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UReactStateMappingsDataAsset*                ReactMappings;                                            // 0x0930(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x8];                                       // 0x0938(0x0008) MISSED OFFSET
-	class UPetHangoutSpotSelectorComponent*            HangoutSpotSelectorComponent;                             // 0x0940(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UPetHangoutSpotComponent*                    ForcedHangoutSpotComponent;                               // 0x0948(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UBlackboardData*                             DefaultBlackboardAsset;                                   // 0x0950(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UBehaviorTree*                               DefaultTree;                                              // 0x0958(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UBehaviorTree*                               HangoutTree;                                              // 0x0960(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UBehaviorTree*                               IdleTree;                                                 // 0x0968(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              MaximumReactRange;                                        // 0x0970(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x4];                                       // 0x0974(0x0004) MISSED OFFSET
-	class UPetDangerComponent*                         DangerComponent;                                          // 0x0978(0x0008) (Edit, ExportObject, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, IsPlainOldData)
-	float                                              MinAgentHalfHeightPctOverride;                            // 0x0980(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x54];                                      // 0x0984(0x0054) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.PetAIController"));
-		return ptr;
-	}
-
-
-	void OnPerceptionUpdated(TArray<class AActor*> ChangedPerceivedActors);
-	class UAthenaAICharacterPathFollowingComponent* GetAthenaAICharPathFollowingComp();
 };
 
 
@@ -779,18 +601,18 @@ public:
 
 
 // Class Pets.PetItemInfo
-// 0x0060 (0x0570 - 0x0510)
+// 0x0070 (0x0580 - 0x0510)
 class APetItemInfo : public ANonStorableItemInfo
 {
 public:
 	unsigned char                                      UnknownData00[0x18];                                      // 0x0510(0x0018) MISSED OFFSET
-	struct FPetCustomisation                           PetCustomisation;                                         // 0x0528(0x0018) (Net)
-	class AActor*                                      PetOwner;                                                 // 0x0540(0x0008) (Net, ZeroConstructor, Transient, IsPlainOldData)
-	class AActor*                                      SpawnedForShip;                                           // 0x0548(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	float                                              DropTraceDistance;                                        // 0x0550(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              PointSearchRadius;                                        // 0x0554(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	TEnumAsByte<ECollisionChannel>                     DropChannel;                                              // 0x0558(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x17];                                      // 0x0559(0x0017) MISSED OFFSET
+	struct FPetCustomisation                           PetCustomisation;                                         // 0x0528(0x0028) (Net)
+	class AActor*                                      PetOwner;                                                 // 0x0550(0x0008) (Net, ZeroConstructor, Transient, IsPlainOldData)
+	class AActor*                                      SpawnedForShip;                                           // 0x0558(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	float                                              DropTraceDistance;                                        // 0x0560(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              PointSearchRadius;                                        // 0x0564(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	TEnumAsByte<ECollisionChannel>                     DropChannel;                                              // 0x0568(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x17];                                      // 0x0569(0x0017) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -882,19 +704,19 @@ public:
 
 
 // Class Pets.PetPerchComponent
-// 0x0048 (0x0160 - 0x0118)
+// 0x0048 (0x0170 - 0x0128)
 class UPetPerchComponent : public UInteractableComponent
 {
 public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0118(0x0018) MISSED OFFSET
-	TArray<class UClass*>                              AllowedPetTypes;                                          // 0x0130(0x0010) (ZeroConstructor, Transient)
-	int                                                HangoutSpotIndex;                                         // 0x0140(0x0004) (ZeroConstructor, IsPlainOldData)
-	struct FName                                       HangoutSpotName;                                          // 0x0144(0x0008) (ZeroConstructor, IsPlainOldData)
-	struct FVector                                     InteractionPointLocation;                                 // 0x014C(0x000C) (ZeroConstructor, IsPlainOldData)
-	bool                                               Enabled;                                                  // 0x0158(0x0001) (ZeroConstructor, IsPlainOldData)
-	bool                                               BlocksPetEmoteReactions;                                  // 0x0159(0x0001) (ZeroConstructor, IsPlainOldData)
-	bool                                               IgnorePickupFromHangoutTooltipDisplayOffset;              // 0x015A(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x5];                                       // 0x015B(0x0005) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x18];                                      // 0x0128(0x0018) MISSED OFFSET
+	TArray<class UClass*>                              AllowedPetTypes;                                          // 0x0140(0x0010) (ZeroConstructor, Transient)
+	int                                                HangoutSpotIndex;                                         // 0x0150(0x0004) (ZeroConstructor, IsPlainOldData)
+	struct FName                                       HangoutSpotName;                                          // 0x0154(0x0008) (ZeroConstructor, IsPlainOldData)
+	struct FVector                                     InteractionPointLocation;                                 // 0x015C(0x000C) (ZeroConstructor, IsPlainOldData)
+	bool                                               Enabled;                                                  // 0x0168(0x0001) (ZeroConstructor, IsPlainOldData)
+	bool                                               BlocksPetEmoteReactions;                                  // 0x0169(0x0001) (ZeroConstructor, IsPlainOldData)
+	bool                                               IgnorePickupFromHangoutTooltipDisplayOffset;              // 0x016A(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x5];                                       // 0x016B(0x0005) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -1007,20 +829,6 @@ public:
 
 };
 
-
-// Class Pets.ReactAIStrategyId
-// 0x0000 (0x0028 - 0x0028)
-class UReactAIStrategyId : public UAIStrategyId
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Pets.ReactAIStrategyId"));
-		return ptr;
-	}
-
-};
 
 
 // Class Pets.ReactStateMappingsDataAsset
