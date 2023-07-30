@@ -693,6 +693,12 @@
     <ClInclude Include="include\SoT_StatusEffects_enums.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\SoT_SimpleOverlaps_classes.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SoT_SimpleOverlaps_structs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\SoT_Athena_functions.cpp">

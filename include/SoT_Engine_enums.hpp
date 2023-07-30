@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (2.6.1) SDK
+// Sea of Thieves (2.8.4) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -1647,6 +1647,16 @@ enum class EParticleSystemUpdateMode : uint8_t
 	EPSUM_RealTime                 = 0,
 	EPSUM_FixedTime                = 1,
 	EPSUM_MAX                      = 2
+};
+
+
+// Enum Engine.EWaterKillCondition
+enum class EWaterKillCondition : uint8_t
+{
+	EWaterKillCondition__None      = 0,
+	EWaterKillCondition__AboveWater = 1,
+	EWaterKillCondition__Underwater = 2,
+	EWaterKillCondition__EWaterKillCondition_MAX = 3
 };
 
 
@@ -3453,6 +3463,37 @@ enum class ECanvasRenderTargetMips : uint8_t
 };
 
 
+// Enum Engine.EResolveOperationResult
+enum class EResolveOperationResult : uint8_t
+{
+	EResolveOperationResult__Success = 0,
+	EResolveOperationResult__ArchiveError = 1,
+	EResolveOperationResult__InvalidNetGuid = 2,
+	EResolveOperationResult__ArchiveErrorOnPathName = 3,
+	EResolveOperationResult__FailedToFindObjectFromPath = 4,
+	EResolveOperationResult__ObjectPendingKill = 5,
+	EResolveOperationResult__ObjectIsntAPackage = 6,
+	EResolveOperationResult__PackageChecksumFailure = 7,
+	EResolveOperationResult__UnassignedObject = 8,
+	EResolveOperationResult__ObjectMissing = 9,
+	EResolveOperationResult__LevelNotVisible = 10,
+	EResolveOperationResult__ClassUnexpected = 11,
+	EResolveOperationResult__GetObjectSuccess = 12,
+	EResolveOperationResult__GetObjectInvalidNetGuid = 13,
+	EResolveOperationResult__GetObjectDefaultNetGuid = 14,
+	EResolveOperationResult__GetObjectNeverRegistered = 15,
+	EResolveOperationResult__GetObjectBroken = 16,
+	EResolveOperationResult__GetObjectPending = 17,
+	EResolveOperationResult__GetObjectDynamicStale = 18,
+	EResolveOperationResult__GetObjectNoPath = 19,
+	EResolveOperationResult__GetObjectNoEntryForOuter = 20,
+	EResolveOperationResult__GetObjectOuterIsBroken = 21,
+	EResolveOperationResult__GetObjectUnableToResolveOuter = 22,
+	EResolveOperationResult__GetObjectUnableToFindObject = 23,
+	EResolveOperationResult__EResolveOperationResult_MAX = 24
+};
+
+
 // Enum Engine.EEmitterRenderMode
 enum class EEmitterRenderMode : uint8_t
 {
@@ -3780,6 +3821,15 @@ enum class ELocationBoneSocketSource : uint8_t
 };
 
 
+// Enum Engine.EMissingParentParticlesBehaviour
+enum class EMissingParentParticlesBehaviour : uint8_t
+{
+	EMissingParentParticlesBehaviour__SpawnFromEmitterLocation = 0,
+	EMissingParentParticlesBehaviour__PreventSpawning = 1,
+	EMissingParentParticlesBehaviour__EMissingParentParticlesBehaviour_MAX = 2
+};
+
+
 // Enum Engine.ELocationEmitterSelectionMethod
 enum class ELocationEmitterSelectionMethod : uint8_t
 {
@@ -3799,6 +3849,28 @@ enum class EStartLocationGPUGroupNames : uint8_t
 	StartLocationGPUGroupReplacement = 4,
 	StartLocationGPUGroup_MAX      = 5,
 	EStartLocationGPUGroupNames_MAX = 6
+};
+
+
+// Enum Engine.ESpawnLocationValueSemantic
+enum class ESpawnLocationValueSemantic : uint8_t
+{
+	ESpawnLocationValueSemantic__Absolute = 0,
+	ESpawnLocationValueSemantic__Additive = 1,
+	ESpawnLocationValueSemantic__ESpawnLocationValueSemantic_MAX = 2
+};
+
+
+// Enum Engine.ESpawnLocationValueSemanticGPUGroupNames
+enum class ESpawnLocationValueSemanticGPUGroupNames : uint8_t
+{
+	SpawnLocationValueSemanticGPUGroupB = 0,
+	SpawnLocationValueSemanticGPUGroupC = 1,
+	SpawnLocationValueSemanticGPUGroupD = 2,
+	SpawnLocationValueSemanticGPUGroupE = 3,
+	SpawnLocationValueSemanticGPUGroupReplacement = 4,
+	SpawnLocationValueSemanticGPUGroup_MAX = 5,
+	ESpawnLocationValueSemanticGPUGroupNames_MAX = 6
 };
 
 
@@ -4518,6 +4590,26 @@ enum class ECameraAlphaBlendMode : uint8_t
 	ECameraAlphaBlendMode__CABM_Linear = 0,
 	ECameraAlphaBlendMode__CABM_Cubic = 1,
 	ECameraAlphaBlendMode__CABM_MAX = 2
+};
+
+
+// Enum Engine.EChannelDormancy
+enum class EChannelDormancy : uint8_t
+{
+	EChannelDormancy__Awake        = 0,
+	EChannelDormancy__PendingDormant = 1,
+	EChannelDormancy__Dormant      = 2,
+	EChannelDormancy__EChannelDormancy_MAX = 3
+};
+
+
+// Enum Engine.EActorChannelState
+enum class EActorChannelState : uint8_t
+{
+	EActorChannelState__NoChannel  = 0,
+	EActorChannelState__ChannelCreated = 1,
+	EActorChannelState__SpawnAcked = 2,
+	EActorChannelState__EActorChannelState_MAX = 3
 };
 
 

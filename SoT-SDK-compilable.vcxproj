@@ -194,6 +194,8 @@
     <ClInclude Include="include\SoT_ShipDamage_structs.hpp" />
     <ClInclude Include="include\SoT_ShortRangeMarkerFramework_classes.hpp" />
     <ClInclude Include="include\SoT_ShortRangeMarkerFramework_structs.hpp" />
+    <ClInclude Include="include\SoT_SimpleOverlaps_classes.hpp" />
+    <ClInclude Include="include\SoT_SimpleOverlaps_structs.hpp" />
     <ClInclude Include="include\SoT_SlateCore_classes.hpp" />
     <ClInclude Include="include\SoT_SlateCore_enums.hpp" />
     <ClInclude Include="include\SoT_SlateCore_structs.hpp" />

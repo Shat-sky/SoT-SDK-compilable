@@ -1,4 +1,4 @@
-// Sea of Thieves (2.6.1) SDK
+// Sea of Thieves (2.8.4) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -6075,9 +6075,10 @@ void UAnimInstance::SetMorphTarget(const struct FName& MorphTargetName, float Va
 // float                          InPlayRate                     (Parm, ZeroConstructor, IsPlainOldData)
 // int                            LoopCount                      (Parm, ZeroConstructor, IsPlainOldData)
 // float                          BlendOutTriggerTime            (Parm, ZeroConstructor, IsPlainOldData)
+// float                          StartingPosition               (Parm, ZeroConstructor, IsPlainOldData)
 // class UAnimMontage*            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-class UAnimMontage* UAnimInstance::PlaySlotAnimationAsDynamicMontage(class UAnimSequenceBase* Asset, const struct FName& SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int LoopCount, float BlendOutTriggerTime)
+class UAnimMontage* UAnimInstance::PlaySlotAnimationAsDynamicMontage(class UAnimSequenceBase* Asset, const struct FName& SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int LoopCount, float BlendOutTriggerTime, float StartingPosition)
 {
 	static auto fn = UObject::FindObject<UFunction>(_xor_("Function Engine.AnimInstance.PlaySlotAnimationAsDynamicMontage"));
 
@@ -6090,6 +6091,7 @@ class UAnimMontage* UAnimInstance::PlaySlotAnimationAsDynamicMontage(class UAnim
 		float                          InPlayRate;
 		int                            LoopCount;
 		float                          BlendOutTriggerTime;
+		float                          StartingPosition;
 		class UAnimMontage*            ReturnValue;
 	} params;
 
@@ -6100,6 +6102,7 @@ class UAnimMontage* UAnimInstance::PlaySlotAnimationAsDynamicMontage(class UAnim
 	params.InPlayRate = InPlayRate;
 	params.LoopCount = LoopCount;
 	params.BlendOutTriggerTime = BlendOutTriggerTime;
+	params.StartingPosition = StartingPosition;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -6243,9 +6246,10 @@ void UAnimInstance::Montage_Resume(class UAnimMontage* Montage)
 // Parameters:
 // class UAnimMontage*            MontageToPlay                  (Parm, ZeroConstructor, IsPlainOldData)
 // float                          InPlayRate                     (Parm, ZeroConstructor, IsPlainOldData)
+// float                          Position                       (Parm, ZeroConstructor, IsPlainOldData)
 // float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-float UAnimInstance::Montage_Play(class UAnimMontage* MontageToPlay, float InPlayRate)
+float UAnimInstance::Montage_Play(class UAnimMontage* MontageToPlay, float InPlayRate, float Position)
 {
 	static auto fn = UObject::FindObject<UFunction>(_xor_("Function Engine.AnimInstance.Montage_Play"));
 
@@ -6253,11 +6257,13 @@ float UAnimInstance::Montage_Play(class UAnimMontage* MontageToPlay, float InPla
 	{
 		class UAnimMontage*            MontageToPlay;
 		float                          InPlayRate;
+		float                          Position;
 		float                          ReturnValue;
 	} params;
 
 	params.MontageToPlay = MontageToPlay;
 	params.InPlayRate = InPlayRate;
+	params.Position = Position;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -24170,38 +24176,6 @@ void ASkeletalMeshActor::OnRep_ReplicatedMesh()
 }
 
 
-// Function Engine.SkeletalMeshActor.OnRep_ReplicatedMaterial1
-// (Native, Public)
-
-void ASkeletalMeshActor::OnRep_ReplicatedMaterial1()
-{
-	static auto fn = UObject::FindObject<UFunction>(_xor_("Function Engine.SkeletalMeshActor.OnRep_ReplicatedMaterial1"));
-
-	struct
-	{
-	} params;
-
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-
-// Function Engine.SkeletalMeshActor.OnRep_ReplicatedMaterial0
-// (Native, Public)
-
-void ASkeletalMeshActor::OnRep_ReplicatedMaterial0()
-{
-	static auto fn = UObject::FindObject<UFunction>(_xor_("Function Engine.SkeletalMeshActor.OnRep_ReplicatedMaterial0"));
-
-	struct
-	{
-	} params;
-
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-
 // DelegateFunction Engine.ApplicationLifecycleComponent.ApplicationLifetimeDelegate__DelegateSignature
 // (MulticastDelegate, Public, Delegate)
 
@@ -30776,7 +30750,7 @@ void UFeatureConfigBlueprintFunctionLibrary::MakeFeatureFlag(struct FFeatureFlag
 
 
 // Function Engine.FeatureConfigBlueprintFunctionLibrary.IsFeatureEnabled
-// (Final, Native, Static, Public, HasOutParms, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Static, Public, HasOutParms, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FFeatureFlag            Flag                           (ConstParm, Parm, OutParm, ReferenceParm)
 // bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
