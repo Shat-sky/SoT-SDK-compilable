@@ -434,12 +434,14 @@ struct FPersistenceModel
 };
 
 // ScriptStruct Athena.ItemSpawnParams
-// 0x0028
+// 0x0038
 struct FItemSpawnParams
 {
-	struct FWeightedProbabilityRange                   Total;                                                    // 0x0000(0x0020) (Edit)
-	float                                              AllowedAngleDeviation;                                    // 0x0020(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              MaxZ;                                                     // 0x0024(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FFeatureFlag                                FeatureFlag;                                              // 0x0000(0x000C) (Edit)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
+	struct FWeightedProbabilityRange                   Total;                                                    // 0x0010(0x0020) (Edit)
+	float                                              AllowedAngleDeviation;                                    // 0x0030(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              MaxZ;                                                     // 0x0034(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct Athena.DockToObjectActionStateParams
@@ -467,6 +469,16 @@ struct FEnchantedCompassTarget
 	int                                                TargetID;                                                 // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 	struct FVector                                     TargetLocation;                                           // 0x0004(0x000C) (ZeroConstructor, IsPlainOldData)
 	TWeakObjectPtr<class AActor>                       TargetActor;                                              // 0x0010(0x0008) (ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct Athena.GenericPopupAudioDescriptor
+// 0x0040
+struct FGenericPopupAudioDescriptor
+{
+	class FString                                      SfxEventName;                                             // 0x0000(0x0010) (ZeroConstructor)
+	class FString                                      EventName;                                                // 0x0010(0x0010) (ZeroConstructor)
+	class FString                                      SwitchName;                                               // 0x0020(0x0010) (ZeroConstructor)
+	class FString                                      SwitchValue;                                              // 0x0030(0x0010) (ZeroConstructor)
 };
 
 // ScriptStruct Athena.QuestVariable
@@ -888,7 +900,7 @@ public:
 };
 
 // Class Athena.ItemInfo
-// 0x0148 (0x0510 - 0x03C8)
+// 0x0160 (0x0528 - 0x03C8)
 class AItemInfo : public AActor
 {
 public:
@@ -897,19 +909,19 @@ public:
 	unsigned char                                      UnknownData01[0x7];                                       // 0x03E9(0x0007) MISSED OFFSET
 	struct FScriptMulticastDelegate                    OnItemPickedUpDelegate;                                   // 0x03F0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	struct FScriptMulticastDelegate                    OnItemDroppedDeletage;                                    // 0x0400(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	unsigned char                                      UnknownData02[0x18];                                      // 0x0410(0x0018) MISSED OFFSET
-	class UClass*                                      WieldableType;                                            // 0x0428(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UClass*                                      ProxyType;                                                // 0x0430(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UWieldableItemPersistentCooldownComponent*   WieldableItemPersistenceCooldownComponent;                // 0x0438(0x0008) (Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-	class UItemDesc*                                   Desc;                                                     // 0x0440(0x0008) (Net, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EItemRepresentation>                   CurrentRepresentation;                                    // 0x0448(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x7];                                       // 0x0449(0x0007) MISSED OFFSET
-	class AActor*                                      CurrentRepresentationInstance;                            // 0x0450(0x0008) (Edit, Net, ZeroConstructor, EditConst, IsPlainOldData)
-	class AActor*                                      CurrentOwner;                                             // 0x0458(0x0008) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	class AActor*                                      TutorialOwner;                                            // 0x0460(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData04[0xA1];                                      // 0x0468(0x00A1) MISSED OFFSET
-	bool                                               DoNotConsiderForMigrationGather;                          // 0x0509(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData05[0x6];                                       // 0x050A(0x0006) MISSED OFFSET
+	unsigned char                                      UnknownData02[0x30];                                      // 0x0410(0x0030) MISSED OFFSET
+	class UClass*                                      WieldableType;                                            // 0x0440(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UClass*                                      ProxyType;                                                // 0x0448(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UWieldableItemPersistentCooldownComponent*   WieldableItemPersistenceCooldownComponent;                // 0x0450(0x0008) (Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class UItemDesc*                                   Desc;                                                     // 0x0458(0x0008) (Net, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EItemRepresentation>                   CurrentRepresentation;                                    // 0x0460(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x7];                                       // 0x0461(0x0007) MISSED OFFSET
+	class AActor*                                      CurrentRepresentationInstance;                            // 0x0468(0x0008) (Edit, Net, ZeroConstructor, EditConst, IsPlainOldData)
+	class AActor*                                      CurrentOwner;                                             // 0x0470(0x0008) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	class AActor*                                      TutorialOwner;                                            // 0x0478(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData04[0xA1];                                      // 0x0480(0x00A1) MISSED OFFSET
+	bool                                               DoNotConsiderForMigrationGather;                          // 0x0521(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData05[0x6];                                       // 0x0522(0x0006) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -931,7 +943,7 @@ public:
 };
 
 // Class Athena.NonStorableItemInfo
-// 0x0000 (0x0510 - 0x0510)
+// 0x0000 (0x0528 - 0x0528)
 class ANonStorableItemInfo : public AItemInfo
 {
 public:

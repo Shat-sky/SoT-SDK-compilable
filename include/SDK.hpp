@@ -73,6 +73,7 @@
 #include "SoT_Retraction_classes.hpp"
 #include "SoT_Reviving_classes.hpp"
 #include "SoT_SeasonProgressionFramework_classes.hpp"
+#include "SoT_SeasonProgressionUI_classes.hpp"
 #include "SoT_Sessions_classes.hpp"
 #include "SoT_ShipDamage_classes.hpp"
 #include "SoT_ShortRangeMarkerFramework_classes.hpp"
